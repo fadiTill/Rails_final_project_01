@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
- 
-
-
-
-end
+  resources :welcome, only: [:home] do
+  end
+  match '/auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
+  # Add your routes here		   # Add your routes here
+  root 'welcome#home'
+end		 
