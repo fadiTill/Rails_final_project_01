@@ -3,5 +3,5 @@ Rails.application.routes.draw do
   end
   # match '/auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
   # # Add your routes here		   # Add your routes here
-  # root 'welcome#home'
+   root 'welcome#home'
  end		 
