@@ -1,0 +1,31 @@
+
+#  t.string "name"
+#  t.string "email"
+#  t.string "uid"
+#  t.string "image"
+
+
+<%= form_for @user do |f| %>
+    <label> Name:</label><br>
+  <%= f.text_field :name %></br>
+
+  <label>email:</label><br>
+  <%= f.email_field:email %></br>
+
+  <label> password:</label><br>
+  <%= f.passrword_field :password %></br>
+
+
+  <label> uid:</label><br>
+  <%= f.hidden_field_tag :uid %></br>
+
+  <label> Picture:</label><br>
+  <%= f.image_field :password %></br>
+
+
+
+
+  
+ 
+  <%= f.submit %>
+<% end %>
