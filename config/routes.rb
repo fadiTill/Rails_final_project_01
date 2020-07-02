@@ -5,7 +5,8 @@ Rails.application.routes.draw do
   # # Add your routes here		   # Add your routes here
 
 
-
+  resources :users, only: [:new, :create, :show]
+  get 'users/new', to: 'users#new'
    get '/login', to: 'sessions#new'
    post "/login", to: "sessions#create"
    delete "/logout", to: "sessions#destroy" 

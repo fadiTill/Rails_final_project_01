@@ -21,9 +21,6 @@ class SessionsController < ApplicationController
     @user = User.find_by(email: params[:user][:email])
     session[:user_id] = @user.id
     redirect user_path
-  else
-    redirect_to '/'
-
   end
 
 def delete

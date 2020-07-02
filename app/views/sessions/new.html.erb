@@ -1,11 +1,24 @@
-<h1>Log In</h1>
+<h1>Please Log In </h1>
+
 <%= form_tag('/login', method: :post) do %>
       <br>
       <%= label_tag :name %>
-      <%= collection_select(:user, :name, User.all, :name, :name, :prompt => true)%>
+      <%= text_field_tag :name %>
       <br>
+
+
       <%= label_tag :password %>
       <%= password_field_tag :password %>
+
       <br>
+      <%= label_tag :email %>
+      <%= email_field_tag :email %>
+      <br>
+
       <%= submit_tag "Log In" %>
   <% end %>
+
+
+  <li>
+<%= link_to 'Sign Up', new_user_path %>
+</li>
