@@ -19,6 +19,8 @@ ActiveRecord::Schema.define(version: 2020_06_29_183130) do
     t.string "email"
     t.string "time_line"
     t.text "comment"
+    t.integer "user_id"
+    t.integer "house_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -26,8 +28,6 @@ ActiveRecord::Schema.define(version: 2020_06_29_183130) do
   create_table "houses", force: :cascade do |t|
     t.string "adress"
     t.string "comment"
-    t.integer "user_id"
-    t.integer "guest_id"
   end
 
   create_table "users", force: :cascade do |t|

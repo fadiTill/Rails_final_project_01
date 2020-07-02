@@ -7,7 +7,8 @@ class CreateGuests < ActiveRecord::Migration[6.0]
       t.string  :email
       t.string  :time_line 
       t.text    :comment
-  
+      t.integer :user_id
+      t.integer :house_id
         t.timestamps
     end
   end

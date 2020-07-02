@@ -1,48 +1,14 @@
 class GuestsController < ApplicationController
    
-    def index
-     if logged_in?
-     @guests = current_user.guests
-     end
    
-   
-    def new
-     @guest = Guest.new
-    end 
-
-
-    def create
-         @guest = current_user.guests.build(params)
-        # @guest = Guest.create(guest_params)
-        @guest.save
-        redirect_to guest_path(@guest)
+     def create
+    #    @guest = current_user.guests.build(params)
+        @guest = Guest.create(guest_params)
+        # message = guest.call_guest
+        redirect_to user_path(guest.user), flash {message: message}
         
     end 
-end
 
-
-
-    def show 
-        # @guest = current_user.guests.build(params)
-        @guest = Guest.find_by(id: params[:id])
-    end 
-
-
-    def edit
-        @guest = Guest.find_by(id: params[:id])
-    end
-
-def update
-    @guest = Guest.find_by(id: params[:id])
-    @guest.update(guest_params)
-    redirect_to guest_path(@guest)
-end
-
-    def delete
-        if current_user.id == @guest.user_id
-        @guest.delete
-        render 'index'
-    end
 
     private 
 
@@ -53,9 +19,11 @@ end
     # t.string "email"
     # t.string "time_line"
     # t.text "comment"
+    # t.integer :user_id
+    # t.integer :house_id
     
     def guest_params
-        params.require(:guest).permit(:name, :phone_number, :adress, :email, :time_line, :comment)
+        params.require(:guest).permit(:name, :phone_number, :adress, :email, :time_line, :comment, :user_id,:house_id)
     end 
 end
 end
