@@ -1,6 +1,6 @@
 <h1>Please Log In </h1>
 
-<%= form_tag('/login', method: :post) do %>
+<%= form_tag('/signin', method: :post) do %>
       <br>
       <%= label_tag :name %>
       <%= text_field_tag :name %>
@@ -15,10 +15,14 @@
       <%= email_field_tag :email %>
       <br>
 
-      <%= submit_tag "Log In" %>
+      <%= submit_tag "Sign In" %>
   <% end %>
 
 
+
+
+
+  
   <li>
 <%= link_to 'Sign Up', new_user_path %>
 </li>
