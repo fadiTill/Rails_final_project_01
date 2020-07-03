@@ -1,0 +1,14 @@
+
+#  t.string "adress"
+#  t.string "comment"
+
+<%= form_for @house do |f| %>
+    <label> adress:</label><br>
+  <%= f.text_field :adress %><br>
+
+  <label>comment:</label><br>
+  <%= f.text_field :comment %><br>
+
+ 
+  <%= f.submit %>
+<% end %>

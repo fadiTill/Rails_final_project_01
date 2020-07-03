@@ -1,32 +1,18 @@
 require 'pry'
 
 class SessionsController < ApplicationController
-  # skip_before_action :verify_authenticity_token, only: :create
-
-  # def create
-  #   pp request.env['omniauth.auth']
-  #   session[:name] = request.env['omniauth.auth']['info']['name']
-  #   session[:omniauth_data] = request.env['omniauth.auth']
-
-   
-  #   redirect_to root_path
-  # end
-
-#   def new
-#   end
+#   skip_before_action :verify_authenticity_token, only: :create
 
 #   def create
-#     @user = User.find_by(name: params[:user][:name])
-#     session[:user_id] = @user.id
-#     redirect_to user_path(@user)
-#   end
+#     pp request.env['omniauth.auth']
+#     session[:name] = request.env['omniauth.auth']['info']['name']
+#     session[:omniauth_data] = request.env['omniauth.auth']
 
-#   def destroy
-#     session.destroy
+   
 #     redirect_to root_path
 #   end
+# end
 
-# end 
 
   def new 
 

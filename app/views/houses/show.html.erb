@@ -1,0 +1,15 @@
+
+<% if  current_user%>
+    <h1><%= @house.adress %></h1>
+    <p>Total Number of Guests: <%= @house.guests.count %></p>
+    <p>comment: <%= @house.comment %></p> 
+
+    <%= link_to "Edit House", edit_house_path(@house)  %>
+    <%= button_to "create a new house", new_house_path%>
+<% else %>
+    <% if @message %>
+    <%= @message %>
+    <% end %>
+    <p>Adress: <%= @house.adress %></p>
+    <%= button_to "create a new house", new_house_path%>
+<%end%>  
