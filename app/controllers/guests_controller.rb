@@ -3,15 +3,24 @@ class GuestsController < ApplicationController
 
 
 
+
+    def index
+        @guests = Guest.all
+    end 
+
     def new
         @guest = Guest.new
     end
+
+
+    # @book = @author.books.create(published_at: Time.now)
    
      def create
-    #    @guest = current_user.guests.build(params)
+       @guest = current_user.guests.build(guest_params)
     #    if guest.save
-        @guest = User.create(guest_params)
+        # @guest = @user.guests.create(params)
         # message = guest.call_guest
+        # redirect_to guest_path(@guest)
         redirect_to user_path(current_user)
         
     end 

@@ -16,7 +16,7 @@
   <%= f.text_field :name %></br>
 
 
-  <label>Phone numberl:</label><br>
+  <label>Phone number:</label><br>
   <%= f.telephone_field :phone_number %></br>
 
   <label>adress:</label><br>
@@ -29,7 +29,7 @@
   <%= f.text_field :time_line %></br>
 
   <label>user_id:</label><br>
-  <%= f.hidden_field :user_id %></br>
+  <%= f.integer_field :user_id %></br>
 
   <label>house:</label><br>
   <%= collection_select(:user, :house_id, House.all, :id, :adress) %>
