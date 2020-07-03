@@ -13,7 +13,6 @@ class UsersController < ApplicationController
          redirect_to user_path(@user), :alert=> "Welcome to Open house app! You Signed up / Bienvenue"
         else 
             render 'new', :alert=> "Please fill in the form"
-
     end 
 end
 
