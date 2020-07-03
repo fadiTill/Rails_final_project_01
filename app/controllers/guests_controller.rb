@@ -1,11 +1,18 @@
 class GuestsController < ApplicationController
    
+
+
+
+    def new
+        @guest = Guest.new
+    end
    
      def create
     #    @guest = current_user.guests.build(params)
-        @guest = Guest.create(guest_params)
+    #    if guest.save
+        @guest = User.create(guest_params)
         # message = guest.call_guest
-        redirect_to user_path(guest.user), flash {message: message}
+        redirect_to user_path(current_user)
         
     end 
 
@@ -25,5 +32,4 @@ class GuestsController < ApplicationController
     def guest_params
         params.require(:guest).permit(:name, :phone_number, :adress, :email, :time_line, :comment, :user_id,:house_id)
     end 
-end
 end

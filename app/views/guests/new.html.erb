@@ -1,0 +1,39 @@
+
+# t.string "name"
+# t.string "phone_number"
+# t.string "adress"
+# t.string "email"
+# t.string "time_line"
+# t.text "comment"
+# t.integer "user_id"
+# t.integer "house_id"
+
+
+
+<%= form_for @guest do |f| %>
+
+    <label> Name:</label><br>
+  <%= f.text_field :name %></br>
+
+
+  <label>Phone numberl:</label><br>
+  <%= f.telephone_field :phone_number %></br>
+
+  <label>adress:</label><br>
+  <%= f.text_field :adress %></br>
+
+  <label>email:</label><br>
+  <%= f.email_field :adress %></br>
+
+  <label>time line:</label><br>
+  <%= f.text_field :time_line %></br>
+
+  <label>user_id:</label><br>
+  <%= f.hidden_field :user_id %></br>
+
+  <label>house:</label><br>
+  <%= collection_select(:user, :house_id, House.all, :id, :adress) %>
+
+
+  <%= f.submit %>
+<% end %>

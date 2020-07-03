@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
 
   resources :houses 
+  resources :guests
  resources :users, only: [:new, :create, :show]
  get 'users/new', to: 'users#new'
  get '/signin', to: 'sessions#new'
