@@ -23,17 +23,18 @@
   <%= f.text_field :adress %></br>
 
   <label>email:</label><br>
-  <%= f.email_field :adress %></br>
+  <%= f.email_field :email %></br>
 
   <label>time line:</label><br>
   <%= f.text_field :time_line %></br>
 
   <label>user_id:</label><br>
-  <%= f.integer_field :user_id %></br>
+  <%= f.number_field :user_id %></br>
 
   <label>house:</label><br>
   <%= collection_select(:user, :house_id, House.all, :id, :adress) %>
 
 
+  
   <%= f.submit %>
 <% end %>

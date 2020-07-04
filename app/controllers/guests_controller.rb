@@ -2,8 +2,6 @@ class GuestsController < ApplicationController
    
 
 
-
-
     def index
         @guests = Guest.all
     end 
@@ -21,10 +19,31 @@ class GuestsController < ApplicationController
         # @guest = @user.guests.create(params)
         # message = guest.call_guest
         # redirect_to guest_path(@guest)
-        redirect_to user_path(current_user)
+        # redirect_to user_path(current_user)
+        render 'guests/show'
         
     end 
 
+
+    def edit 
+        @guest = Guest.find_by(id: params[:id])
+    end 
+
+    def update
+        @guest = Guest.find_by(id: params[:id])
+        @guest.update(house_params)
+        redirect_to house_path(@guest)
+      end
+
+
+
+      def index
+       if  @guest = current_user.guests.build(guest_params) && house_id == house.id
+        @guests = Guests.all
+       else 
+        redirect 'guests/new'
+      end 
+    end
 
     private 
 

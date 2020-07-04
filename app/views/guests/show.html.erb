@@ -1,26 +1,31 @@
 
-<%= form_for @guest do |f| %>
+ <h1> GUEST/SHOW </h1>
 
-  <%= f.text_field :name %>
-  <br>
-  <%= f.telephone_field :phone_number %>
-  </br>
-  <br>
-  <%= f.text_field :adress %>
-  </br>
-  <br>
-  <%= f.email_field :adress %><
-  </br>
-  <br>
-  <%= f.text_field :time_line %>
-  </br>
-  <br>
-  <%= f.integer_field :user_id %>
-  </br>
-  <br>
-  <%= f.integer_field :user_id %>
-  </br>
+ <%= form_for @guest do |f| %>
 
-  <%end%>
+  <label> Name:</label><br>
+<%= f.text_field :name %></br>
+
+
+<label>Phone number:</label><br>
+<%= f.telephone_field :phone_number %></br>
+
+<label>adress:</label><br>
+<%= f.text_field :adress %></br>
+
+<label>email:</label><br>
+<%= f.email_field :email %></br>
+
+<label>time line:</label><br>
+<%= f.text_field :time_line %></br>
+
+<label>user_id:</label><br>
+<%= f.text_field :user_id %></br>
+
+ 
+ 
+  <% end %>
+  
+  
 
  
