@@ -24,8 +24,10 @@ class GuestsController < ApplicationController
         #  @house = House.find_by(id: params[:id])
         # #  redirect_to user_path(current_user)
         # render 'guests/show' 
+     end
 
-        
+        def show
+            @guest = Guest.find_by(id: params[:id])     
     end 
 
 
