@@ -15,12 +15,16 @@ class GuestsController < ApplicationController
    
      def create
        @guest = current_user.guests.build(guest_params)
-    #    if guest.save
-        # @guest = @user.guests.create(params)
-        # message = guest.call_guest
-        # redirect_to guest_path(@guest)
-        # redirect_to user_path(current_user)
-        render 'guests/show'
+    # #   
+    #       redirect_to user_path(current_user)
+         render 'guests/show'
+
+        #  @guest = Guest.create(user_id: current_user.id, house_id: params[:id])
+        #  @guest.save
+        #  @house = House.find_by(id: params[:id])
+        # #  redirect_to user_path(current_user)
+        # render 'guests/show' 
+
         
     end 
 
