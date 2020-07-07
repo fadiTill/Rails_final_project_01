@@ -1,5 +1,5 @@
 class GuestsController < ApplicationController
-   
+    before_action :require_login
 
 
     def index
@@ -55,6 +55,15 @@ class GuestsController < ApplicationController
     #   end 
     # end
 
+
+
+    # def destroy
+    #     @house = house.find(params[:article_id])
+    #     @guest = @house.guests.find(params[:id])
+    #     @guest.destroy
+    #     redirect_to house_path(@house)
+    #   end
+
     private 
 
 
@@ -70,4 +79,9 @@ class GuestsController < ApplicationController
     def guest_params
         params.require(:guest).permit(:name, :phone_number, :adress, :email, :time_line, :comment, :user_id,:house_id)
     end 
+
+
+    def require_login
+        return head(:forbidden) unless session.include? :user_id
+      end
 end
