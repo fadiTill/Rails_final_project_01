@@ -9,11 +9,14 @@ class HousesController < ApplicationController
 
       def new
         @house = House.new
-        @house.guests.build(:name)
+        # @house.guests.build(:name)
       end
 
+
+      
       def create
-        @house = House.create(house_params)
+        # @house = current_user.guests.build(house_params)
+         @house = House.create(house_params)
         redirect_to house_path(@house)
       end
     

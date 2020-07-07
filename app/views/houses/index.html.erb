@@ -4,9 +4,10 @@
     <% @houses.each do |house| %>
         <li><%= link_to "Show #{house.adress}", house_path(house) %></li>
     <% end %>
-    <li><%= link_to "New House", new_house_path  %></li>
+    <p><%= link_to "New House", new_house_path  %></p>
+
 <% else %>
     <% @houses.each do |house| %>
-    <li><%= link_to "Go on #{house.adress}", house_path(house)  %></li>
+    <p><%= link_to "Go on #{house.adress}", house_path(house)  %><p>
     <% end %>
 <% end %>

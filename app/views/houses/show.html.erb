@@ -1,4 +1,6 @@
 
+
+
  <h1> house infos </h1>
 
  <%= form_for @house do |f| %>
@@ -47,11 +49,13 @@
 <li>
 <label>Note:</label> <%= gue.text_field :comment %>
 
-
+<li>
+<%= link_to 'Edit Guest ', edit_guest_path  %>  
+</li>
 
 <%end%> 
+
  <p>
- <%= link_to 'Edit Guest ', edit_guest_path  %>  |
  <%= link_to 'New Guest ', new_guest_path  %>
  </p>
  
