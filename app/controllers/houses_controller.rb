@@ -4,7 +4,9 @@ class HousesController < ApplicationController
     # t.string :adress
     # t.string :comment
     def index
-        @houses = House.all
+        # @houses = House.all
+        @houses = current_user.guests
+        
       end
 
       def new
