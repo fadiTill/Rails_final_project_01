@@ -4,14 +4,14 @@ class HousesController < ApplicationController
     # t.string :adress
     # t.string :comment
     def index
-        # @houses = House.all
-        @houses = current_user.guests
+         @houses = House.all
+        # @houses = current_user.guests
         
       end
 
       def new
-        @house = House.new
-        # @house.guests.build(:name)
+         @house = House.new
+        #  @house.guests.build(:name)
       end
 
 
@@ -19,12 +19,15 @@ class HousesController < ApplicationController
       def create
         # @house = current_user.guests.build(house_params)
          @house = House.create(house_params)
+         @house.save
         redirect_to house_path(@house)
       end
     
+
+
       def show
         @house = House.find_by(id: params[:id])
-       
+
       end
     
     
@@ -42,7 +45,7 @@ class HousesController < ApplicationController
     
       private
         def house_params
-          params.require(:house).permit( :adress, :comment, 
+          params.require(:house).permit( :adress, :comment,
           guests_attributes:[:name, :phone_number, :adress, :email, :time_line, :comment, :user_id,:house_id]
           )
         end

@@ -13,7 +13,6 @@ Rails.application.routes.draw do
  post "/signin", to: "sessions#create"
  delete "/signout", to: "sessions#destroy" 
  root 'welcome#home'
-
  resources :houses 
   resources :guests
 
