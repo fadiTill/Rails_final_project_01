@@ -1,5 +1,5 @@
 class  Guest < ApplicationRecord
     
      belongs_to :user
-     belongs_to :houses
+     belongs_to :house
 end

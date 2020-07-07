@@ -28,11 +28,13 @@
   <label>time line:</label><br>
   <%= f.text_field :time_line %></br>
 
-  <label>user_id:</label><br>
-  <%= f.number_field :user_id %></br>
+  <label>comment:</label><br>
+  <%= f.text_field :comment %></br>
+
+
 
   <label>house:</label><br>
-  <%= collection_select(:user, :house_id, House.all, :id, :adress) %>
+  <%= f.collection_select( :house_id, House.all, :id, :adress) %>
 
 
   

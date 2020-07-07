@@ -15,11 +15,12 @@ class GuestsController < ApplicationController
    
      def create
        @guest = current_user.guests.build(guest_params)
-    # #   
-    #       redirect_to user_path(current_user)
-         render 'guests/show'
+       @guest.save
+    #   binding.pry
+         redirect_to user_path(current_user)
+        #  render 'guests/show'
 
-        #  @guest = Guest.create(user_id: current_user.id, house_id: params[:id])
+      #@guest = Guest.create(user_id: current_user.id, house_id: params[:id])
         #  @guest.save
         #  @house = House.find_by(id: params[:id])
         # #  redirect_to user_path(current_user)
@@ -37,19 +38,19 @@ class GuestsController < ApplicationController
 
     def update
         @guest = Guest.find_by(id: params[:id])
-        @guest.update(house_params)
+        @guest.update(guest_params)
         redirect_to house_path(@guest)
       end
 
 
 
-      def index
-       if  @guest = current_user.guests.build(guest_params) && house_id == house.id
-        @guests = Guests.all
-       else 
-        redirect 'guests/new'
-      end 
-    end
+    #   def index
+    #    if  @guest = current_user.guests.build(guest_params) && house_id == house.id
+    #     @guests = Guests.all
+    #    else 
+    #     redirect 'guests/new'
+    #   end 
+    # end
 
     private 
 
