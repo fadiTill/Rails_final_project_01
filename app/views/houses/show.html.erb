@@ -1,9 +1,18 @@
 
-<% if  current_user%>
-    <h1><%= @house.adress %></h1>
-    <p>Total Number of Guests: <%= @house.guests.count %></p>
-    <p>comment: <%= @house.comment %></p> 
- <li>
+ 
+ <%= form_for @house do |f| %>
+    <%= f.label :adress %>
+    <%= f.text_field :adress %><br>
+
+ <%= f.fields_for :guests do |gue| %>
+
+    <li>
+<label> guest Name:</label> <%= gue.text_field :name %>
+</li>
+
+    <%end%> 
+
+<li>
  <%= link_to "Edit House", edit_house_path(@house)  %>
  </li>
  <br>

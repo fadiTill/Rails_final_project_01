@@ -4,11 +4,12 @@ class HousesController < ApplicationController
     # t.string :adress
     # t.string :comment
     def index
-        @houses = Houses.all
+        @houses = House.all
       end
 
       def new
         @house = House.new
+        @house.guests.build(:name)
       end
 
       def create
@@ -36,7 +37,9 @@ class HousesController < ApplicationController
     
       private
         def house_params
-          params.require(:house).permit( :adress, :comment)
+          params.require(:house).permit( :adress, :comment, 
+          guests_attributes:[:name, :phone_number, :adress, :email, :time_line, :comment, :user_id,:house_id]
+          )
         end
     end
 

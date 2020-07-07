@@ -10,12 +10,18 @@ class UsersController < ApplicationController
         @user = User.new(user_params)
         if @user.save
          session[:user_id] = @user.id
+        
          redirect_to user_path(@user), :alert=> "Welcome to Open house app! You Signed up / Bienvenue"
         else 
             render 'new', :alert=> "Please fill in the form"
     end 
 end
 
+
+
+def edit
+    @user = User.find_by(id: params[:id])
+end
 
 
     def show 
