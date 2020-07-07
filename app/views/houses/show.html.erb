@@ -1,14 +1,47 @@
 
- 
+ <h1> houses infos </h1>
+
  <%= form_for @house do |f| %>
     <%= f.label :adress %>
     <%= f.text_field :adress %><br>
 
+    <%= f.label :comment %>
+    <%= f.text_field :comment%><br>
+
+
+    <h2> guests infos </h2>
+
+
+    <p>Total Number of Guests: <%= @house.guests.count %></p>
+
+
  <%= f.fields_for :guests do |gue| %>
 
-    <li>
-<label> guest Name:</label> <%= gue.text_field :name %>
+<li>
+<label> Guest Name:</label> <%= gue.text_field :name %>
 </li>
+<li>
+<label>Phone:</label> <%= gue.text_field :phone_number %>
+</li>
+
+<li>
+<label>Adress:</label> <%= gue.text_field :adress %>
+</li>
+
+<li>
+<label>Email:</label> <%= gue.text_field :email %>
+</li>
+
+
+
+<li>
+<label>Timeline:</label> <%= gue.text_field :time_line %>
+</li>
+
+<li>
+<label>Note:</label> <%= gue.text_field :comment %>
+</li>
+
 
     <%end%> 
 
