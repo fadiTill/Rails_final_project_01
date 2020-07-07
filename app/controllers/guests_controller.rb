@@ -11,13 +11,16 @@ class GuestsController < ApplicationController
     end
 
 
-    # @book = @author.books.create(published_at: Time.now)
+    # if current_user.id == @guest.user_id
    
      def create
        @guest = current_user.guests.build(guest_params)
+       @house = @guest.house_id
        @guest.save
+       redirect_to house_path(@house)
+
     #   binding.pry
-         redirect_to user_path(current_user)
+         #redirect_to user_path(current_user)
         #  render 'guests/show'
 
       #@guest = Guest.create(user_id: current_user.id, house_id: params[:id])
