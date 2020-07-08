@@ -11,7 +11,11 @@ body {
 
 <h1>  welcome  to open  houses app </h1>
 
+<% if current_user %>
+  Logged in as <%= current_user.email %>
+  <%= link_to 'sign Out', signout_path %>
 
+<% else %>
 <li>
 <%= link_to 'Sign In', signin_path %>
 </li>
@@ -19,6 +23,4 @@ body {
 <li>
 <%= link_to 'Sign Up', new_user_path %>
 </li>
-
-
-
+<% end %>
