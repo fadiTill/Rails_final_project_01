@@ -22,19 +22,22 @@ class SessionsController < ApplicationController
   def create 
     @user = User.find_by(email: params[:email])
     session[:user_id] = @user.id
-    # redirect user_path
-    redirect_to user_path(@user)
+      # redirect user_path
+      redirect_to user_path(@user)
   end
 
-# def delete
-#   session.destroy
-#   redirect_to root_path
-#   end 
+
+  
 
 def destroy
-  session[:user_id] = nil
-  redirect_to root_url, notice: "Logged out!"
-end
+  session.destroy
+  redirect_to root_path
+  end 
+
+# def destroy
+#   session[:user_id] = nil
+#   redirect_to root_url, notice: "Logged out!"
+# end
 
 
 end
