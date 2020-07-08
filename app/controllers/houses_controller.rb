@@ -23,7 +23,7 @@ class HousesController < ApplicationController
 
       
       def create
-        # @house = current_user.guests.build(house_params)
+        #  @house = current_user.guests.build(house_params)
          @house = House.create(house_params)
          @house.save
         redirect_to house_path(@house)

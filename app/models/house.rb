@@ -4,4 +4,6 @@ class  House < ApplicationRecord
     accepts_nested_attributes_for :guests
 
     validates :adress, uniqueness: true
+
+
 end

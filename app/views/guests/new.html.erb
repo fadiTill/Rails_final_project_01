@@ -9,6 +9,8 @@
 # t.integer "house_id"
 
 
+# need to be able to select only house that user create
+
 
 <%= form_for @guest do |f| %>
 
@@ -31,12 +33,10 @@
   <label>comment:</label><br>
   <%= f.text_field :comment %></br>
 
+  
 
-
-  <label>house:</label><br>
-  <%= f.collection_select( :house_id, House.all, :id, :adress) %>
-
-
+  <%= f.collection_select( :house_id, House.all, :id, :adress, :prompt=>true) %>
+ 
   
   <%= f.submit %>
 <% end %>
