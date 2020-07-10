@@ -1,3 +1,5 @@
+
+<% if @guests = current_user.guests %>
 <% @guests.each  do | guest|%>
 
     guest number: <%= guest.id %>
@@ -30,4 +32,13 @@
 
 
 <% end %>
+
+
+<%else%>
+
+< h1 > no guests to show <h1>
+
+<% end %>
+
+
 

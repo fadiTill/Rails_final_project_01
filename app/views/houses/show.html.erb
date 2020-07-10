@@ -1,5 +1,5 @@
 
-
+<% if @houses = current_user.houses && @guests = current_user.guests  %>
 
  <h1> house infos </h1>
 
@@ -14,16 +14,19 @@
     <%= link_to 'update ', edit_house_path  %>
     </p>
    
+<p>
+<%= link_to "Delete", @house, method: :delete, data: {confirm: "Really?"} %>
+</p>
+
+   
+
+<h2> guests infos </h2>
 
 
-
-    <h2> guests infos </h2>
-
-
-    <p>Total Number of Guests: <%= @house.guests.count %></p>
+<p>Total Number of Guests: <%= @house.guests.count %></p>
 
 
- <%= f.fields_for :guests do |gue| %>
+<%= f.fields_for :guests do |gue| %>
 
 <li>
 <label> Guest Name:</label> <%= gue.text_field :name %>
@@ -40,8 +43,6 @@
 <label>Email:</label> <%= gue.text_field :email %>
 </li>
 
-
-
 <li>
 <label>Timeline:</label> <%= gue.text_field :time_line %>
 </li>
@@ -50,19 +51,40 @@
 <label>Note:</label> <%= gue.text_field :comment %>
 
 <li>
-<%= link_to 'Edit Guest ', edit_guest_path  %>  
+<label>user_id:</label> <%= gue.text_field :user_id %>
 </li>
+
+<li>
+<label>house_ide:</label> <%= gue.text_field :house_id %>
+
+
+<li>
+<li>
+<%= link_to 'Edit Guest ', edit_guest_path(@house)  %>  
+</li>
+
 
 <%end%> 
 
  <p>
- <%= link_to 'New Guest ', new_guest_path  %>
+ <%= link_to 'New Guest ', new_house_guest_path(@house) %>
  </p>
- 
+
+
+
  <p>
  <%= link_to 'sign Out', signout_path %>
  </p>
 
+<%end%> 
+
+<%else%>
+
+    <h1> not your infos <h1>
+
 <%end%>  
+
+
+
 
 

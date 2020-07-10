@@ -1,52 +1,60 @@
 class HousesController < ApplicationController
 
-  # http_basic_authenticate_with name: "dhh", password: "secret", only: :update
+  #  http_basic_authenticate_with name: "@user.name", password: "@user.password", only: :update
 
-  # before_action :require_login
-  # skip_before_action :require_login, only: [:index]
+   before_action :require_login
+  
 
 
-
-    # t.string :adress
-    # t.string :comment
     def index
-         @houses = House.all
-        # @houses = current_user.guests
+         @houses = House.all 
+    end
+
+
+      def show
         
-      end
+        @house = House.find_by(id: params[:id])
+        
+    end
+    
 
       def new
          @house = House.new
-        #  @house.guests.build(:name)
+      end
+
+      def edit
+         @house = House.find_by(id: params[:id])
+        # @house = House.find_by( params[:id])
       end
 
 
       
       def create
-        #  @house = current_user.guests.build(house_params)
          @house = House.create(house_params)
-         @house.save
-        redirect_to house_path(@house)
+         if @house.save
+        #  redirect_to house_path(@house)
+        redirect_to @house
+         else
+          render 'new'
       end
-    
-
-
-      def show
-        @house = House.find_by(id: params[:id])
-
-      end
-    
-    
-    
-      def edit
-        @house = House.find_by(id: params[:id])
-       
-      end
+    end
     
       def update
         @house = House.find_by(id: params[:id])
-        @house.update(house_params)
-        redirect_to house_path(@house)
+       if  @house.update(house_params)
+        redirect_to @house
+       else
+        render 'edit'
+       end 
+      end
+        # redirect_to house_path(@house)
+      
+
+#destroy will destroy  the house and all guest associate with it to avoid bad data to persist.
+      def destroy
+        @house = House.find( params[:id])
+        @house.destroy
+        redirect_to houses_path
       end
     
       private
@@ -57,9 +65,11 @@ class HousesController < ApplicationController
         end
 
 
-        # def require_login
-        #   return head(:forbidden) unless session.include? :user_id
-        # end
+         def require_login
+          #  return head(:forbidden) unless session.include? :user_id
+          return head(:forbidden) unless logged_in?
+
+         end
     end
 
 

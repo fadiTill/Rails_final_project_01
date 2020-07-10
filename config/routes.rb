@@ -15,7 +15,11 @@ Rails.application.routes.draw do
  root 'welcome#home'
 
 
- resources :houses 
-    resources :guests
+ resources :houses do
+    resources :guests, only: [ :new, :create, :show, :index]
 
+end
+
+resources :guests
+ 
 end
