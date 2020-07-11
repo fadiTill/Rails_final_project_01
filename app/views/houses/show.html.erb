@@ -1,18 +1,18 @@
 
 
-
  <h1> house infos </h1>
 
- <%= form_for @house do |f| %>
-    <%= f.label :adress %>
-    <%= f.text_field :adress %><br>
 
-    <%= f.label :comment %>
-    <%= f.text_field :comment%><br>
+ <p>
+ <strong>Title:</strong>
+ <%= @house.adress %>
+</p>
 
-    <p>
-    <%= link_to 'update ', edit_house_path  %>
-    </p>
+<p>
+ <strong>Text:</strong>
+ <%= @house.comment %>
+</p>
+
    
 <p>
 <%= link_to "Delete", @house, method: :delete, data: {confirm: "Really?"} %>
@@ -23,60 +23,58 @@
 <h2> guests infos </h2>
 
 
-<p>Total Number of Guests: <%= @house.guests.count %></p>
+        <p>Total Number of Guests: <%= @house.guests.count %></p>
+
+        <%= render @house.guests %>
 
 
-<%= f.fields_for :guests do |gue| %>
+        <h2>Add a guests:</h2>
+        <%= form_with model: [ @house, @house.guests.build ], local: true do |form| %>
+        <p>
+            <%= form.label :name %><br>
+            <%= form.text_field :name %>
+        </p>
+        <p>
+            <%= form.label :phone_number %><br>
+            <%= form.text_field :phone_number%>
+        </p>
+        <p>
+        <%= form.label :adress  %><br>
+        <%= form.text_field :adress %>
+        </p>
+        <p>
+        <%= form.label :email  %><br>
+        <%= form.text_field :email %>
+        </p>
+        <p>
+        <%= form.label :time_line  %><br>
+        <%= form.text_field :time_line %>
+        </p>
+        <p>
+        <%= form.label :comment  %><br>
+        <%= form.text_field :comment %>
+        </p>
+        <p>
+        
+        <%= form.hidden_field :user_id %>
+        </p>
+        
+        <%= form.hidden_field :house_id %>
+        </p>
 
-<li>
-<label> Guest Name:</label> <%= gue.text_field :name %>
-</li>
-<li>
-<label>Phone:</label> <%= gue.text_field :phone_number %>
-</li>
+        <p>
+        <%= form.submit %>
+       </p>
+        <%end%> 
 
-<li>
-<label>Adress:</label> <%= gue.text_field :adress %>
-</li>
-
-<li>
-<label>Email:</label> <%= gue.text_field :email %>
-</li>
-
-<li>
-<label>Timeline:</label> <%= gue.text_field :time_line %>
-</li>
-
-<li>
-<label>Note:</label> <%= gue.text_field :comment %>
-
-<li>
-<label>user_id:</label> <%= gue.text_field :user_id %>
-</li>
-
-<li>
-<label>house_ide:</label> <%= gue.text_field :house_id %>
-
-
-<li>
-<li>
-<%= link_to 'Edit Guest ', edit_guest_path(@house)  %>  
-</li>
-
-
-<%end%> 
-
- <p>
- <%= link_to 'New Guest ', new_house_guest_path(@house) %>
- </p>
+        <%= link_to 'Edit', edit_house_path(@house) %> |
+        <%= link_to 'Back', houses_path %>
 
 
 
- <p>
- <%= link_to 'sign Out', signout_path %>
- </p>
+        
 
-<%end%> 
+        
 
 
 

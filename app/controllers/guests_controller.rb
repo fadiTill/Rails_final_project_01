@@ -52,13 +52,14 @@ class GuestsController < ApplicationController
 
 
 
-#delete guest will delete the house associate with it 
-    # def destroy
-    #      @house = house.find(params[:house_id])
-    #     @guest = @house.guests.find(params[:id])
-    #     @guest.destroy
-    #     redirect_to house_path(@house)
-    #   end
+      
+
+    def destroy
+         @house = House.find(params[:house_id])
+        @guest = @house.guests.find(params[:id])
+        @guest.destroy
+        redirect_to house_path(@house)
+      end
 
 
   
