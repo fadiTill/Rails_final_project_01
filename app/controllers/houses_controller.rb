@@ -7,17 +7,17 @@ class HousesController < ApplicationController
 
 
     def index
-         @houses = House.all 
+        #  @houses = House.all.order
+        @houses = House.all
     end
 
 
-      def show
-        
+      def show  
         @house = House.find_by(id: params[:id])
-        
-    end
+      end
     
-
+    
+      # @person.addresses.build(address_type: 'work')
       def new
          @house = House.new
       end

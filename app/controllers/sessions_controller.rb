@@ -1,17 +1,19 @@
 require 'pry'
 
 class SessionsController < ApplicationController
-#   skip_before_action :verify_authenticity_token, only: :create
+  #  skip_before_action :verify_authenticity_token, only: :create
 
-#   def create
-#     pp request.env['omniauth.auth']
-#     session[:name] = request.env['omniauth.auth']['info']['name']
-#     session[:omniauth_data] = request.env['omniauth.auth']
+  # def create
+  #   pp request.env['omniauth.auth']
+  #   session[:name] = request.env['omniauth.auth']['info']['name']
+  #   user = User.sign_in_from_aumniauth(auth)
+  #   session[:user_id] = @user.id
+  #   session[:omniauth_data] = request.env['omniauth.auth']
 
    
-#     redirect_to root_path
-#   end
-# end
+  #   redirect_to root_url, notice: "SIGNED IN"
+  # end
+
 
 
   def new 

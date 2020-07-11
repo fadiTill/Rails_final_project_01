@@ -1,5 +1,5 @@
 class GuestsController < ApplicationController
-    before_action :require_login
+    # before_action :require_login
     http_basic_authenticate_with name: "@user.name", password: "@user.password", only: :index
 
 
@@ -29,10 +29,10 @@ class GuestsController < ApplicationController
      end
 
         def show
-            @guest = Guest.find_by(id: params[:id])     
+         @guest = Guest.find_by(id: params[:id])     
     end 
 
-
+    # Post.where("author_id = ?", @author.id)
     def edit 
         @guest = Guest.find_by(id: params[:id])
     end 
@@ -73,8 +73,7 @@ class GuestsController < ApplicationController
 
 
     def require_login
-        # return head(:forbidden) unless session.include? :user_id
-        return head(:forbidden) unless logged_in?
-
+#     #  return head(:forbidden) unless session.include? :user_id
+          return head(:forbidden) unless logged_in?
       end
 end
