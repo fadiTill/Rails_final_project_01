@@ -7,15 +7,15 @@
 
 
 <% if current_user %>
-  Logged in as <%= current_user.email %>
-  <%= link_to 'sign Out', signout_path %>
-  <li>
+ Logged in as <%= current_user.email %>
+<%= link_to 'sign Out', signout_path %>
+<li>
 <%= link_to 'Sign In', signin_path %>
 </li>
 
 <% else %>
 <li>
-<%= link_to 'Sign In', signin_path %>
+<%= link_to 'Log In', signin_path %>
 </li>
 
 <li>
@@ -23,5 +23,6 @@
 </li>
 <% end %>
 
-
-<p> <%= link_to 'Signing in with the GitHub strategy', '/auth/github'%>.</p>
+<li>
+<p> <%= link_to 'Login in with the GitHub strategy', '/auth/github'%>.</p>
+</li>

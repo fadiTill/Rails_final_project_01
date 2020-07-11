@@ -1,28 +1,33 @@
-<h1> Log In </h1>
+    <h1> Log In </h1>
 
-<%= form_tag('/signin', method: :post) do %>
+    <%= form_tag('/signin', method: :post) do %>
+          
       <br>
       <%= label_tag :name %>
       <%= text_field_tag :name %>
       <br>
 
-
+      <br>
       <%= label_tag :password %>
       <%= password_field_tag :password %>
+      <br>
 
       <br>
-      <%= label_tag :email %>
+      <%= label_tag :email %> 
       <%= email_field_tag :email %>
+      </br>
+
       <br>
-
       <%= submit_tag "submit" %>
-  <% end %>
+      </br>
 
+     <% end %>
 
+     <li>
+     <%= link_to 'Sign Up', new_user_path %>
+     </li>
 
 
 
   
-  <li>
-<%= link_to 'Sign Up', new_user_path %>
-</li>
+
