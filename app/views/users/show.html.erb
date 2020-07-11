@@ -1,16 +1,14 @@
 
-<h1> user/show </h1>
+<h1> Welcome <%= @user.name %></br> </h1>
 
-<li>
-<%= form_for @user do |f| %>
- <%= f.text_field :name %></br>
- </li>
 
- <li>
- <%= f.email_field :email %></br> 
- <%end%>
- </li>
+
+<h3></h3>
+ <h3><%= @user.email %></br></h3> 
  
+ 
+
+ <p>
  <li>
  <%= link_to 'new House ', new_house_path %>
  </li>
@@ -23,7 +21,7 @@
  <li>
  <%= link_to 'sign Out', signout_path %>
  </li>
-
+ </p>
  
 
 
