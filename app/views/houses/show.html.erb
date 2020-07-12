@@ -3,6 +3,8 @@
  <h1> house infos </h1>
 
 
+ 
+
  <p>
  <strong>Title:</strong>
  <%= @house.adress %>
@@ -18,10 +20,6 @@
 <%= link_to "Delete", @house, method: :delete, data: {confirm: "Really?"} %>
 </p>
 
-   
-
-<h2> guests infos </h2>
-
 
         <p>Total Number of Guests: <%= @house.guests.count %></p>
 
@@ -29,6 +27,11 @@
 
 
         <h2>Add a guests:</h2>
+
+
+
+
+        
         <%= form_with model: [ @house, @house.guests.build ], local: true do |form| %>
         <p>
             <%= form.label :name %><br>
@@ -71,7 +74,7 @@
         <%= link_to 'Back', houses_path %>
 
 
-
+        
         
 
         

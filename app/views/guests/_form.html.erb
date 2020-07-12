@@ -3,7 +3,7 @@
 <div id="error_explanation">
   <h2>
     <%= pluralize(@aguest.errors.count, "error") %> prohibited
-    this article from being saved:
+    this guest from being saved:
   </h2>
   <ul>
     <% @guest.errors.full_messages.each do |msg| %>

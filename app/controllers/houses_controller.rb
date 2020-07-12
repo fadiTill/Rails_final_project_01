@@ -1,6 +1,6 @@
 class HousesController < ApplicationController
 
-  #  http_basic_authenticate_with name: "@user.name", password: "@user.password", only: :update
+    http_basic_authenticate_with name: "@user.name", password: "@user.password", only: :show
 
    before_action :require_login
   
@@ -59,15 +59,13 @@ class HousesController < ApplicationController
     
       private
         def house_params
-          params.require(:house).permit( :adress, :comment,
-          guests_attributes:[:name, :phone_number, :adress, :email, :time_line, :comment, :user_id,:house_id]
-          )
+          params.require(:house).permit( :adress, :comment)
         end
 
 
          def require_login
-          #  return head(:forbidden) unless session.include? :user_id
-          return head(:forbidden) unless logged_in?
+            # return head(:forbidden) unless session.include? :user_id
+           return head(:forbidden) unless logged_in?
 
          end
     end

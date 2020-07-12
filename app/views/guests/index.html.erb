@@ -1,3 +1,5 @@
+<h1> index <h1>
+
 
 <% if @guests = current_user.guests %>
 <% @guests.each  do | guest|%>
@@ -19,8 +21,6 @@
 <li>
 <label>Email:</label> <%= guest.email %>
 </li>
-
-
 
 <li>
 <label>Timeline:</label> <%= guest.time_line %>

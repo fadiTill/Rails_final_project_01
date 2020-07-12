@@ -4,11 +4,18 @@
 #t.string "password"
 
 
-<h1> users /new </h1>
+
+
+<h1> Welcome ! </h1>
 
 <%= render partial: 'form', locals:{user: @user, button_label: "Create User"} %>
 
 
+
+<h1> Are you already an user ? </h1>
+<li>
+<%= link_to 'Log In', signin_path %>
+</li>
 
 
 
