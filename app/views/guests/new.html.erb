@@ -1,5 +1,14 @@
 
-<h1> new guest <h1>
+# t.string "name"
+# t.string "phone_number"
+# t.string "adress"
+# t.string "email"
+# t.string "time_line"
+# t.text "comment"
+# t.integer "user_id"
+# t.integer "house_id"
+
+
 # need to be able to select only house that user create
 
 
@@ -27,6 +36,9 @@
  <%= f.hidden_field :user_id %>
 
   <%= f.hidden_field :house_id %>
+
+
+  <%= f.collection_select( :house_id, House.all, :id, :adress, :prompt=>true) %>
  
   
  

@@ -18,7 +18,7 @@ Rails.application.routes.draw do
 
 
  resources :houses do
-    resources :guests, only: [ :new, :create, :show, :destroy, :index]
+    resources :guests, only: [ :new, :create, :show, :destroy, :index, :edit]
 
 end
 
