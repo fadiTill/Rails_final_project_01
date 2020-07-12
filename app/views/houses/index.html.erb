@@ -1,13 +1,24 @@
 <h1> Your Houses List</h1>
 
+
+
 <% if @houses = current_user.houses %>
+
+
     <% @houses.each do |house| %>
-        <li><%= link_to "Show #{house.adress}", house_path(house) %></li>
-    <% end %>
-    <p><%= link_to "New House", new_house_path  %></p>
+
+ <li><%= link_to "Show #{house.adress}", house_path(house) %></li>
+ 
+ <% end %>
+ <p><%= link_to "New House", new_house_path  %></p>
+
 
 <% else %>
-    <% @houses.each do |house| %>
-    <p><%= link_to "Go on #{house.adress}", house_path(house)  %><p>
-    <% end %>
+
+<p><%= link_to "New House", new_house_path  %></p>
+
 <% end %>
+
+
+
+

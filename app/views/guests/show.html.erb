@@ -1,6 +1,7 @@
 
  <h1> GUEST/SHOW </h1>
 
+
  <%= form_for @guest do |f| %>
 
   <label> Name:</label><br>
@@ -26,7 +27,19 @@
 
 <%= f.hidden_field :house_id %>
 
-  <% end %>
+
+<%= f.collection_select( :house_id, House.all, :id, :adress, :prompt=>true) %>
+ 
+  
+ 
+<%= f.submit %>
+
+<% end %>
+
+
+
+<%= link_to 'Edit Guest', edit_guest_path(@guest) %>
+
   
   
 

@@ -28,6 +28,9 @@ class GuestsController < ApplicationController
       redirect_to house_path(@house)
      end
 
+
+
+    #  @project = @current_user.projects.find(params[:id])
         def show
          @guest = Guest.find_by(id: params[:id])     
     end 
@@ -74,7 +77,7 @@ class GuestsController < ApplicationController
 
 
     def require_login
-      return head(:forbidden) unless session.include? :user_id
-        #   return head(:forbidden) unless logged_in?
+      # return head(:forbidden) unless session.include? :user_id
+          return head(:forbidden) unless logged_in?
       end
 end

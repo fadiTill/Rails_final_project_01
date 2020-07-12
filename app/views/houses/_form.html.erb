@@ -1,31 +1,32 @@
 
-
-
-<% if @house.errors.any? %>
-<div id="error_explanation">
-  <h2>
-    <%= pluralize(@house.errors.count, "error") %> prohibited
-    this house from being saved:
-  </h2>
-  <ul>
-    <% @house.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-  </ul>
-</div>
-<% end %>
-
-
-
 <%= form_for @house do |f| %>
-   
-  
-  <label> adress:</label><br>
-  <%= f.text_field :adress %><br>
 
-  <label>comment:</label><br>
-  <%= f.text_field :comment %><br>
+  <% if @house.errors.any? %>
+  <div id="error_explanation">
+    <h2>
+      <%= pluralize(@house.errors.count, "error") %> prohibited
+      this house from being saved:
+    </h2>
+    <ul>
+      <% @house.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+  <% end %>
 
- 
-  <%= f.submit %>
-<% end %>
+    
+    <p>
+    <label> adress:</label><br>
+    <%= f.text_field :adress %><br>
+    </p>
+    
+    <p>
+    <label>comment:</label><br>
+    <%= f.text_field :comment %><br>
+    </p>
+
+    <p>
+    <%= f.submit %>
+    <p>
+  <% end %>
