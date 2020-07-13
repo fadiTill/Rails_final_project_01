@@ -1,51 +1,46 @@
 class GuestsController < ApplicationController
     before_action :require_login
-    http_basic_authenticate_with name: "@user.name", password: "@user.password", only: :index
+    # http_basic_authenticate_with name: "@user.name", password: "@user.password", only: :index
 
 
 
-    def index
-        @guests = Guest.all
-    end 
+      def index
+          @guests = Guest.all
+      end 
 
-    
+      
 
 
-    def new
-        @guest = Guest.new
-    end
-
-    # def new
-    #   @guest = Guest.new(house_id: params[:house_id])
-    # end
+      def new
+          @guest = Guest.new
+      end
 
     
-   
-    def create
-      @guest = current_user.guests.build(guest_params)
-      @house = @guest.house_id
-      @guest.save
-      redirect_to house_path(@house)
-     end
+      def create
+        @guest = current_user.guests.build(guest_params)
+        @house = @guest.house_id
+        if @guest.save
+        redirect_to house_path(@house)
+      else
+        render 'new'
+        end
+      end
 
 
 
     #  @project = @current_user.projects.find(params[:id])
         def show
          @guest = Guest.find_by(id: params[:id])     
-    end 
+       end 
+
+
 
     # Post.where("author_id = ?", @author.id)
     def edit 
         @guest = Guest.find_by(id: params[:id])
     end 
 
-    # def update
-    #   @guest = Guest.find(params[:id])
-    #   @guest.update(guest_params)
-    #   redirect_to house_path(@guest)
-    # end
-
+    
 
     def update
         @guest = Guest.find_by(id: params[:id])

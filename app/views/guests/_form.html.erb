@@ -1,27 +1,25 @@
 
-<% if @guest.errors.any? %>
-<div id="error_explanation">
-  <h2>
-    <%= pluralize(@aguest.errors.count, "error") %> prohibited
-    this guest from being saved:
-  </h2>
-  <ul>
-    <% @guest.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-  </ul>
-</div>
-<% end %>
 
+<%= form_for @guest do |f| %>
 
-<%= form_for (@guest) do |f| %>
+  <% if @guest.errors.any? %>
+  <div id="error_explanation">
+    <h2>
+      <%= pluralize(@guest.errors.count, "error") %> prohibited
+      this guest from being saved:
+    </h2>
+    <ul>
+      <% @guest.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+  <% end %>
   
-  <br>
 
-    <label> Name:</label><br>
+  <br><label> Name:</label><br>
   <%= f.text_field :name %></br>
-  
-  
+
   <label>Phone number:</label><br>
   <%= f.telephone_field :phone_number %></br>
   
@@ -41,9 +39,13 @@
 
   <%= f.hidden_field :user_id %>
 
+  <%= f.collection_select( :house_id, House.all, :id, :adress, :prompt=>true) %>
+ 
+  
+ 
   <%= f.submit %>
-  <% end %>
-   
+
+<% end %>
    
     
     

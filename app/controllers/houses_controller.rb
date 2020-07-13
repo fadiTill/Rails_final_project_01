@@ -29,8 +29,8 @@ class HousesController < ApplicationController
 
         
         def create
-  #         render plain: params[:article].inspect
-  # end
+  #      render plain: params[:article].inspect
+  #    end
           @house = House.create(house_params)
           if @house.save
           redirect_to @house
@@ -51,7 +51,7 @@ class HousesController < ApplicationController
         
         
 
-  #destroy will destroy  the house and all guest associate with it to avoid bad data to persist.
+  #destroy will destroy  the house and all guests associate with it to avoid bad data to persist.
         def destroy
           @house = House.find( params[:id])
           @house.destroy

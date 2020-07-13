@@ -1,4 +1,4 @@
-<h1> index <h1>
+<h1> Guests index <h1>
 
 
 <% if @guests = current_user.guests %>
@@ -7,6 +7,8 @@
     guest number: <%= guest.id %>
 
    
+
+    
  <li>
 <label>Name:</label> <%= guest.name %>
 </li>
@@ -30,6 +32,9 @@
 <li>
 <label>Note:</label> <%= guest.comment %>
 </li>
+
+
+
 
 
 <% end %>
