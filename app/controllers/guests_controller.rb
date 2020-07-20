@@ -30,9 +30,8 @@ class GuestsController < ApplicationController
 
     #  @project = @current_user.projects.find(params[:id])
         def show
-         @guest = Guest.find_by(id: params[:id])     
-       end 
-
+         @guest = Guest.find_by(id: params[:id])  
+      end
 
 
     # Post.where("author_id = ?", @author.id)
