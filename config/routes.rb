@@ -10,8 +10,8 @@ Rails.application.routes.draw do
  resources :users, only: [:new, :create, :show, :edit]
  get 'users/new', to: 'users#new'
  get '/signin', to: 'sessions#new'
-#  match '/auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
-  post "/signin", to: "sessions#create"
+  # match '/auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
+   post "/signin", to: "sessions#create"
  get "/signout", to: "sessions#destroy" 
  
  root 'welcome#home'
