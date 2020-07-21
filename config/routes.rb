@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   # match '/auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
   # # Add your routes here		   # Add your routes here
 
-
+#localhost3000 to get github
 
   
  resources :users, only: [:new, :create, :show, :edit]
