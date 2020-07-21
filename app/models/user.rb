@@ -6,17 +6,19 @@ class  User < ApplicationRecord
     has_secure_password
     
     
-     validates :name, uniqueness: true
-     validates :name, presence: true
-     validates :email, presence: true
-     validates :email, uniqueness: true
-     validates :password_digest, uniqueness: true
-     validates :password_digest, presence: true
+    #  validates :name, uniqueness: true
+    #  validates :name, presence: true
+    #  validates :email, presence: true
+    #  validates :email, uniqueness: true
+    #  validates :password_digest, uniqueness: true
+    #  validates :password_digest, presence: true
 
 
 
 def self.find_or_create_by_omniauth(auth_hash)
-    self.where(:email=> auth_hash["info"]["email"]).first_or_create do |user|
+    self.where(:email=> auth_hash["info"]["GitHub"]).first_or_create do |user|
+        # raise.error
+        user.name = ( auth_hash["info"]["nickname"])
     user.password = SecureRandom.hex
     end
  end
@@ -36,5 +38,4 @@ end
     #         name: auth['info']['name']
     
     #     )
-    # end 
-#end
+    #  end 

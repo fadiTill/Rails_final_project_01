@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
     if auth_hash = request.env["omniauth.auth"]
       @user = User.find_or_create_by_omniauth(auth_hash)
       session[:user_id] = @user.id
-      redirect_to signin_path
+      redirect_to user_path(@user)
     else
       @user = User.find_by(email: params[:email])
       if @user && @user.authenticate(params[:password])
@@ -22,6 +22,7 @@ class SessionsController < ApplicationController
       end
     end
   end
+
   
 
   def destroy
@@ -31,15 +32,16 @@ class SessionsController < ApplicationController
     end
 
 
-#   def create 
-#     @user = User.find_by(email: params[:email])
-#    if @user && @user.authenticate(params[:password])
-#     session[:user_id] = @user.id
-#      redirect_to user_path(@user)
-#    else 
-#       render 'new'
+  # def create 
+  #   raise "STOP".inspect
+  #   @user = User.find_by(email: params[:email])
+  #  if @user && @user.authenticate(params[:password])
+  #   session[:user_id] = @user.id
+  #    redirect_to user_path(@user)
+  #  else 
+  #     render 'new'
     
-#   end
+  # end
 # end
 
   
