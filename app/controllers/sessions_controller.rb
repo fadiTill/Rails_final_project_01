@@ -34,6 +34,7 @@ class SessionsController < ApplicationController
 
   # def create 
   #   raise "STOP".inspect
+  # request.env , request.class, request.env["omniauth.auth"]
   #   @user = User.find_by(email: params[:email])
   #  if @user && @user.authenticate(params[:password])
   #   session[:user_id] = @user.id
