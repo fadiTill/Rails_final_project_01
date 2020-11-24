@@ -23,8 +23,8 @@
   <label>Phone number:</label><br>
   <%= f.telephone_field :phone_number %></br>
   
-  <label>adress:</label><br>
-  <%= f.text_field :adress %></br>
+  <label>address:</label><br>
+  <%= f.text_field :address %></br>
   
   <label>email:</label><br>
   <%= f.email_field :email %></br>
@@ -39,7 +39,7 @@
 
   <%= f.hidden_field :user_id %>
 
-  <%= f.collection_select( :house_id, House.all, :id, :adress, :prompt=>true) %>
+  <%= f.collection_select( :house_id, House.all, :id, :address, :prompt=>true) %>
  
   
  

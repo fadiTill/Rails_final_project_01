@@ -3,7 +3,7 @@ class  House < ApplicationRecord
     has_many :users, through: :guests
     accepts_nested_attributes_for :guests
 
-    validates :adress, uniqueness: true, presence: true,
+    validates :address, uniqueness: true, presence: true,
     length: { minimum: 5 }
 
 

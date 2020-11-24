@@ -16,6 +16,8 @@ Rails_final_project_01 And then execute:
 
 $ bundle install
 
+run rails s 
+
 "This MVC will help you Signup as user and save guests data for virtual open houses."
 
 first You can sign up them login
