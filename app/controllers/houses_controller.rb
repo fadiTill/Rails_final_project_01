@@ -1,6 +1,6 @@
 class HousesController < ApplicationController
 
-      http_basic_authenticate_with name: "@user.name", password: "@user.password", only: :show
+      # http_basic_authenticate_with name: "@user.name", password: "@user.password", only: :show
 
       before_action :require_login
     
