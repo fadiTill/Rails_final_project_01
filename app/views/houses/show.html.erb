@@ -1,96 +1,121 @@
+<style>
+        img {
+        opacity: 0.5;
+        }
+        /* Needed to position the navbar */
+  position: relative;
+}
 
+/* Position the navbar container inside the image */
+.container {
+  position: absolute;
+  margin: 20px;
+  width: auto;
+}
 
-        <h1> House infos </h1>
+/* The navbar */
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
 
+/* Navbar links */
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
 
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+ </style>
         
+                <div class="bg-img">
+                <div class="container">
+                <div class="topnav">
+                <a  <%= link_to 'Edit House', edit_house_path(@house) %></a>
+                <a  <%= link_to 'Back', houses_path %></a>
+                <a  <%= link_to "Delete", @house, method: :delete, data: {confirm: "Really?"} %></a>
+                <a  <%= link_to 'index Guests ', guests_path %> </a>
+                </div>
+                </div>
+                </div>
 
-        <p>
-        <strong>Address:</strong>
-        <%= @house.address %>
-        </p>
+                <body>
+                <div class="container">
+                <%= image_tag("home-real-estate-106399.jpg",style:"width:100%")%>
+                </body>
 
-        <p>
-        <strong>Comment:</strong>
-        <%= @house.comment %>
-        </p>
+                <div class="centered">
+                <h1> House infos </h1>
+                <p>
+                <strong>Address:</strong>
+                <%= @house.address %>
+                </p>
+                <p>
+                <strong>Comment:</strong>
+                <%= @house.comment %>
+                </p>
 
-        
-        <p>
-        <%= link_to "Delete", @house, method: :delete, data: {confirm: "Really?"} %>
-        </p>
+                <h2>Guests: <%= @house.guests.count %></h2>
+                <% @house.guests.each do |guest| %>
+                <p>
+                <p>
+                <li>
+                <label>Name:</label> <%= guest.name %>
+                </li>
+                <%end%> 
 
+                <h2>Add  guests:</h2>
+                <%= form_with model: [ @house, @house.guests.build ], local: true do |form| %>
+                <p>
+                <%= form.label :name %><br>
+                <%= form.text_field :name %>
+                </p>
+                <p>
+                <%= form.label :phone_number %><br>
+                <%= form.text_field :phone_number%>
+                </p>
+                <p>
+                <%= form.label :address  %><br>
+                <%= form.text_field :address %>
+                </p>
+                <p>
+                <%= form.label :email  %><br>
+                <%= form.text_field :email %>
+                </p>
+                <p>
+                <%= form.label :time_line  %><br>
+                <%= form.text_field :time_line %>
+                </p>
+                <p>
+                <%= form.label :comment  %><br>
+                <%= form.text_field :comment %>
+                </p>
+                <p>
+                
+                <%= form.hidden_field :user_id %>
+                </p>
+                
+                <%= form.hidden_field :house_id %>
+                </p>
 
-        <p>Total Number of Guests: <%= @house.guests.count %></p>
-
-        <li>
-        <%= link_to 'index Guests ', guests_path %>
-        </li>
-        
-
-        <h2>Guests</h2>
-        <% @house.guests.each do |guest| %>
-       <p>
-       <p>
-       <li>
-       <label>Name:</label> <%= guest.name %>
-       </li>
-     
-       <p>
-       <%= link_to 'Delete Guest', [guest.house, guest],method: :delete,data: { confirm: 'Are you sure?' } %>
-       </p>
-
-       <%end%> 
-
-        <h2>Add  guests:</h2>
-
-        
-        <%= form_with model: [ @house, @house.guests.build ], local: true do |form| %>
-        <p>
-        <%= form.label :name %><br>
-        <%= form.text_field :name %>
-        </p>
-        <p>
-        <%= form.label :phone_number %><br>
-        <%= form.text_field :phone_number%>
-        </p>
-        <p>
-        <%= form.label :address  %><br>
-        <%= form.text_field :address %>
-        </p>
-        <p>
-        <%= form.label :email  %><br>
-        <%= form.text_field :email %>
-        </p>
-        <p>
-        <%= form.label :time_line  %><br>
-        <%= form.text_field :time_line %>
-        </p>
-        <p>
-        <%= form.label :comment  %><br>
-        <%= form.text_field :comment %>
-        </p>
-        <p>
-        
-        <%= form.hidden_field :user_id %>
-        </p>
-        
-        <%= form.hidden_field :house_id %>
-        </p>
-
-        <p>
-        <%= form.submit %>
-       </p>
+                <p>
+                <%= form.submit %>
+                </p>
         <%end%> 
-
-        <%= link_to 'Edit House', edit_house_path(@house) %> |
-        <%= link_to 'Back', houses_path %>
-
-
+                </div>
+                </div>
         
         
+                
 
-        
+                
 
 
 

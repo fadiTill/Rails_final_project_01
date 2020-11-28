@@ -1,18 +1,24 @@
 
 
 
-
+<style>
+img {
+  opacity: 0.5;
+}
+</style>
+<body>
+<div class="container">
+<%= image_tag("home-real-estate-106399.jpg",style:"width:100%")%>
+</body>
  <script>
  alert('Welcome! Please create a new account or log in');
 </script>
-
+<div class="centered">
 <%= render partial: 'form', locals:{user: @user, button_label: "Create User"} %>
-
-
 <br></br>
-<button class="button button1">
+<button>
 <%= link_to 'Log In', signin_path %>
 </button>
-
+</div>
 
 

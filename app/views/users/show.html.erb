@@ -1,37 +1,35 @@
-
-<h1> Welcome <%= @user.name %></br> </h1>
-
-
-
-<h3></h3>
- <h3><%= @user.email %></br></h3>  
- 
- 
-
- <p>
- <li>
- <%= link_to 'new House ', new_house_path %>
- </li>
-
-
- <li>
- <%= link_to 'index House ', houses_path %>
- </li>
-
- <li>
- <%= link_to 'sign Out', signout_path %>
- </li>
- </p>
- 
-
-
-
- 
+        <style>
+        img {
+        opacity: 0.5;
+        }
+        </style>
+        <body>
+        <div class="container">
+        <%= image_tag("home-real-estate-106399.jpg",style:"width:100%")%>
+        </body>
+        <div class="centered">
+        <h1> Welcome <%= @user.name %></br> </h1>
+        <h3></h3>
+        <h3><%= @user.email %></br></h3> 
+        <ul>
+        <li><a href="#home">Open houses app</a></li>
+        <li class="dropdown">
+        <a href="javascript:void(0)" class="dropbtn">Dropdown</a>
+        <div class="dropdown-content">
+            <a  <%= link_to 'new House ', new_house_path %></a>
+            <a  <%= link_to 'index House ', houses_path %></a>
+            <a <%= link_to 'sign Out', signout_path %></a>
+        </div>
+        </div> 
+        </li>
+        </ul>
 
 
- 
- <! -- link_to new_guest_path -->
- <! -- link_to /logout -->
 
 
- 
+        
+        <! -- link_to new_guest_path -->
+        <! -- link_to /logout -->
+
+
+        
