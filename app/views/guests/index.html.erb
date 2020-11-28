@@ -1,40 +1,60 @@
-<h1> Guests index <h1>
+<style>
+#customers {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
 
+#customers td, #customers th {
+  
+  border: 1px solid #ddd;
+  padding: 8px;
+}
 
-<% if @guests = current_user.guests %>
-<% @guests.each  do | guest|%>
+# customers tr:nth-child(even){background-color: #f2f2f2;}
 
-    guest number: <%= guest.id %>
+#customers tr:hover {background-color: #ddd;}
 
-   
-
+#customers th {
     
- <li>
-<label>Name:</label> <%= guest.name %>
-</li>
-
-<li>
-<label>Phone:</label> <%= guest.phone_number %>
-</li>
-
-<li>
-<label>Address:</label> <%= guest.address %>
-</li>
-
-<li>
-<label>Email:</label> <%= guest.email %>
-</li>
-
-<li>
-<label>Timeline:</label> <%= guest.time_line %>
-</li>
-
-<li>
-<label>Note:</label> <%= guest.comment %>
-</li>
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  background-color: #4CAF50;
+  color: white;
+}
+</style>
 
 
 
+        </head>
+        <body>
+        <table id="customers" %>
+        <tr>
+        <th>ID:</th>
+        <th>Name:</th>
+        <th>Phone:</th>
+        <th>Address:</th>
+        <th>Email:</th>
+        <th>Timeline:</th>
+        <th>Note:</th>
+        </tr>
+        
+
+    <% if @guests = current_user.guests %>
+    <% @guests.each  do | guest|%>
+        
+        <tr>
+        <td><%= guest.id %></td>
+        <td><%= guest.name %></td>
+        <td><%= guest.phone_number %></td>
+        <td><%= guest.address %></td>
+        <td><%= guest.email %></td>
+        <td><%= guest.time_line %></td>
+        <td><%= guest.comment %></td>
+
+        
+        
 
 <% end %>
 
