@@ -7,14 +7,18 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  
   </head>
 
   <body>
-
-   <%= image_tag("home-real-estate-106399.jpg",style:"height: 200px; width:1000px")%>
+  <style>
+  img:hover {
+    opacity: 0.5;
+  }
+  
+  </style>
    
-
- 
+  
     <%= yield %>
   </body>
 </html>

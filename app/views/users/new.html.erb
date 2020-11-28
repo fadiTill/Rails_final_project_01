@@ -2,16 +2,17 @@
 
 
 
-<h1> Welcome ! </h1>
+ <script>
+ alert('Welcome! Please create a new account or log in');
+</script>
 
 <%= render partial: 'form', locals:{user: @user, button_label: "Create User"} %>
 
 
-
-<h1> Are you already an user ? </h1>
-<li>
+<br></br>
+<button class="button button1">
 <%= link_to 'Log In', signin_path %>
-</li>
+</button>
 
 
 

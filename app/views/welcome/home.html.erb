@@ -1,13 +1,44 @@
 
 
+<style>
+* {
+  box-sizing: border-box;
+}
 
+body {
+  margin: 0;
+  font-family: Arial;
+}
 
-<h1>  welcome  to open houses app </h1>
+.header {
+  text-align: center;
+  padding: 32px;
+}
 
+/* Create two equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 50%;
+  padding: 10px;
+}
 
+.column img {
+  margin-top: 12px;
+}
 
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+</style>
+<body>
+
+<!-- Header -->
+<div class="header">
 <% if current_user %>
- Logged in as <%= current_user.email %>
+Logged in as <%= current_user.email %>
 <%= link_to 'sign Out', signout_path %>
 
 
@@ -16,15 +47,35 @@
 </li>
 
 <% else %>
-<li>
-<%= link_to 'Log In', signin_path %>
-</li>
 
-<li>
-<%= link_to 'Sign Up', new_user_path %>
-</li>
+
+<ul>
+ <li><a href="#home">Home</a></li>
+ <li class="dropdown">
+   <a href="javascript:void(0)" class="dropbtn">Dropdown</a>
+   <div class="dropdown-content">
+     <a <%= link_to 'Log In', signin_path %></a>
+     <a <%= link_to 'Sign Up', new_user_path %></a>
+     <a <%= link_to ' GitHub ', '/auth/github'%>.</a>
+   </div>
+ </li>
+</ul>
 <% end %>
+</div>
 
-<li>
-<p> <%= link_to 'Login in with the GitHub strategy', '/auth/github'%>.</p>
-</li>
+<!-- Photo Grid -->
+<div class="row"> 
+  <div class="column">
+  <%= image_tag("home-real-estate-106399.jpg",style:"width:100%")%>
+  <%= image_tag("house-409451_1920.jpg" ,style:"width:100%")%>
+  <%= image_tag("architecture-1477041_1280.jpg" ,style:"width:100%")%>
+  
+  </div>
+  <div class="column">
+  <%= image_tag("house-1407562_1920.jpg" ,style:"width:100%")%>
+  <%= image_tag("living-room-3539587_1920.jpg" ,style:"width:100%")%>
+  <%= image_tag("sale-3701777_1920.jpg" ,style:"width:100%")%>
+  </div>
+
+
+
