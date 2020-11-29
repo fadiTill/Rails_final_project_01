@@ -1,7 +1,17 @@
 
+
+
+<style>
+img {
+opacity: 0.5;
+}
+</style>
+<body>
+<div class="container">
+<%= image_tag("home-real-estate-106399.jpg",style:"width:100%")%>
+</body>
+<div class="centered">
  <h1> GUEST/SHOW </h1>
-
-
  <%= form_for @guest do |f| %>
 
  <label> Name:</label><br>
@@ -31,7 +41,9 @@
  
   
  
-<%= f.submit %>
+
+</div>
+</div>
 
 <% end %>
 

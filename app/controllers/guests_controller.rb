@@ -44,7 +44,8 @@ class GuestsController < ApplicationController
     def update
         @guest = Guest.find_by(id: params[:id])
         @guest.update(guest_params)
-        redirect_to house_path(@guest)
+         redirect_to house_path(@guest)
+        
       end
 
 

@@ -1,17 +1,24 @@
+    
+    <style>
+    img {
+      opacity: 0.5;
+    }
+    </style>
+    <body>
+    <div class="container">
+    <%= image_tag("home-real-estate-106399.jpg",style:"width:100%")%>
+    </body>
+    <div class="centered">
     <h1> Log In </h1>
-
-    <%= form_tag('/signin', method: :post) do %>
-          
+    <%= form_tag('/signin', method: :post) do %>   
       <br>
       <%= label_tag :name %>
       <%= text_field_tag :name %>
-      <br>
-
-      <br>
+      </br>
+       <br>
       <%= label_tag :password %>
       <%= password_field_tag :password %>
-      <br>
-
+      </br>
       <br>
       <%= label_tag :email %> 
       <%= email_field_tag :email %>
@@ -20,13 +27,14 @@
       <br>
       <%= submit_tag "submit" %>
       </br>
-
      <% end %>
 
-     <li>
+     <br></br>
+     <button>
      <%= link_to 'Sign Up', new_user_path %>
-     </li>
-
+    </button>
+    </div>
+    </div>
 
 
   

@@ -1,5 +1,15 @@
-
+<style>
+img {
+  opacity: 0.5;
+}
+</style>
+<body>
+<div class="container">
+<%= image_tag("home-real-estate-106399.jpg",style:"width:100%")%>
+</body>
+<div class="centered">
 
 <h2>Edit User</h2>
 
 <%= render partial: 'form', locals:{user: @user, button_label: "Update user"} %>
+</div>

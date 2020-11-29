@@ -24,8 +24,9 @@
   color: white;
 }
 </style>
-
-
+<button>
+<a  <%= link_to 'Back', houses_path %></a>
+</button>
 
         </head>
         <body>
@@ -52,9 +53,10 @@
         <td><%= guest.email %></td>
         <td><%= guest.time_line %></td>
         <td><%= guest.comment %></td>
+        
 
         
-        
+       
 
 <% end %>
 

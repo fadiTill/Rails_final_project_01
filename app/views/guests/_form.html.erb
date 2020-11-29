@@ -8,11 +8,11 @@
       <%= pluralize(@guest.errors.count, "error") %> prohibited
       this guest from being saved:
     </h2>
-    <ul>
+    <p>
       <% @guest.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
+        <h3><%= msg %></h3>
       <% end %>
-    </ul>
+    </p>
   </div>
   <% end %>
   
