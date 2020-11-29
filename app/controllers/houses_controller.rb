@@ -31,7 +31,7 @@ class HousesController < ApplicationController
         def create
   #      render plain: params[:article].inspect
   #    end
-          @house = House.create(house_params)
+          @house = House.new(house_params)
           if @house.save
           redirect_to @house
           else

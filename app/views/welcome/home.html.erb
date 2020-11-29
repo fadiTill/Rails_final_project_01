@@ -38,13 +38,17 @@ body {
 <!-- Header -->
 <div class="header">
 <% if current_user %>
-Logged in as <%= current_user.email %>
-<%= link_to 'sign Out', signout_path %>
 
-
-<li>
-<%= link_to 'Log In', signin_path %>
-</li>
+<ul>
+ <li><a href="#home">Logged in as <%= current_user.email %></a></li>
+ <li class="dropdown">
+   <a href="javascript:void(0)" class="dropbtn">Dropdown</a>
+   <div class="dropdown-content">
+   <%= link_to 'Sign Out', signout_path %>
+     <a <%= link_to 'Log In', signin_path %></a>
+   </div>
+ </li>
+</ul>
 
 <% else %>
 
