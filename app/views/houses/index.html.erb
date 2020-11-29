@@ -1,22 +1,43 @@
+
+<style>
+img {
+  opacity: 0.5;
+}
+</style>
+
+
+
+<body>
+<div class="container">
+<%= image_tag("home-real-estate-106399.jpg",style:"width:100%")%>
+</body>
+<div class="centered">
 <h1> Your Houses List</h1>
-
-
-
 <% if @houses = current_user.houses %>
 
 
     <% @houses.each do |house| %>
 
- <li><%= link_to "Show #{house.address}", house_path(house) %></li>
- 
+<br></br>      
+ <button>
+ <%= link_to "Show #{house.address}", house_path(house) %>
+ </button>
+
  <% end %>
+
+ <br></br>
+ <button>
  <p><%= link_to "New House", new_house_path  %></p>
+ </button>
 
 
 <% else %>
 
+<br></br>
+<button>
 <p><%= link_to "New House", new_house_path  %></p>
-
+</button>
+</div>
 <% end %>
 
 

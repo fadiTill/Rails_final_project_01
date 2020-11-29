@@ -1,5 +1,22 @@
-<h2>Edit House</h2>
 
-<%= render partial: 'form' %>
 
-<%= link_to 'Back', houses_path %>
+
+
+
+       <style>  
+        img {
+        opacity: 0.5;
+        }
+        </style>
+        <body>
+        <div class="container">
+        <%= image_tag("home-real-estate-106399.jpg",style:"width:100%")%>
+        </body>
+        <div class="centered">
+        <h2>Edit House</h2>
+        <%= render partial: 'form'%>
+       <button>
+        <%= link_to 'Back', houses_path %>
+        </button>
+        </div>
+        </div> 

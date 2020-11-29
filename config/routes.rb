@@ -1,8 +1,5 @@
 Rails.application.routes.draw do
-  # resources :welcome, only: [:home] do
-  # end
-  # match '/auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
-  # # Add your routes here		   # Add your routes here
+ 
 
 #localhost3000 to get github
 
@@ -11,7 +8,6 @@ Rails.application.routes.draw do
  get 'users/new', to: 'users#new'
    get '/signin', to: 'sessions#new'
     get '/auth/:provider/callback' => 'sessions#create'
-      # match '/auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
   post "/signin", to: "sessions#create"
  get "/signout", to: "sessions#destroy" 
  
